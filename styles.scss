@@ -1,4 +1,6 @@
+@use "sass:math";
 @import "font/stylesheet.css";
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
@@ -13,6 +15,7 @@ header {
   justify-content: space-around;
   align-items: center;
   width: 960px;
+
 }
 
 header span {
@@ -44,42 +47,8 @@ header span {
   background-color: white;
 }
 
-.grayscale-1 {
-  background-color: rgba(0, 0, 0, 0.1);
+@for $i from 1 through 10 {
+  .grayscale-#{$i} {
+    background-color: rgba(0, 0, 0, math.div($i, 10));
+  }
 }
-
-.grayscale-2 {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.grayscale-3 {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.grayscale-4 {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.grayscale-5 {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.grayscale-6 {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.grayscale-7 {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.grayscale-8 {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.grayscale-9 {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.grayscale-10 {
-  background-color: black;
-}/*# sourceMappingURL=styles.css.map */
