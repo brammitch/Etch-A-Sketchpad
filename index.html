@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Etch-A-Sketch-like Game" />
+    <title>Etch-A-Sketchpad</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="header">
+      <span>
+        <input
+          id="size-selector"
+          type="range"
+          class="slider"
+          name="size"
+          min="10"
+          max="100"
+          value="16"
+          step="2"
+        />
+        <label for="size">Size</label>
+      </span>
+      <span id="sketch-size">16</span>
+    </div>
+    <div id="sketch-container"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

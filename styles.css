@@ -1,0 +1,19 @@
+@import "font/stylesheet.css";
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#sketch-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 960px;
+  height: 960px;
+  border: 1px solid black;
+}
