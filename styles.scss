@@ -1,26 +1,67 @@
 @use "sass:math";
 @import "font/stylesheet.css";
 
+// Media sizes are important to ensure a square grid can fit in the screen.
+$media-sizes: (160, 320, 640, 960, 1280);
+@each $size in $media-sizes {
+  // Add 40px for the header/footer (20px each)
+  @media (min-width: #{$size}px) and (min-height: #{$size + 40}px) {
+    :root {
+      --width: #{$size}px;
+    }
+  }
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   margin: 0;
 }
 
-header {
+header,
+footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 960px;
+  width: var(--width);
+  max-height: 20px;
+}
 
+header {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-left: 1px solid rgba(0, 0, 0, 0.75);
+  border-right: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+header span,
+footer span {
+  text-align: center;
 }
 
 header span {
-  flex: 1 0 25%;
-  text-align: center;
+  font-style: italic;
+  color: #fff;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer {
+  margin: 12px 0 4px 0;
+}
+
+#sketch-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  aspect-ratio: 1/1; // Ensures the grid is square
+  width: var(--width);
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  touch-action: none;
 }
 
 .size-control {
@@ -29,25 +70,16 @@ header span {
   align-items: center;
 }
 
+.size-control label {
+  padding-left: 8px;
+}
+
 #sketch-size {
   text-align: left;
   margin-left: 4px;
 }
 
-#sketch-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 960px;
-  height: 960px;
-  border: 1px solid rgba(0, 0, 0, 0.75);
-}
-
-.grayscale-0 {
-  background-color: white;
-}
-
-@for $i from 1 through 10 {
+@for $i from 0 through 10 {
   .grayscale-#{$i} {
     background-color: rgba(0, 0, 0, math.div($i, 10));
   }
