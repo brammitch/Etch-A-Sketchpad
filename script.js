@@ -39,6 +39,12 @@ window.addEventListener("resize", () => {
   generateGrid();
 });
 
+// Clear button
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => {
+  generateGrid();
+});
+
 function generateGrid() {
   clearGrid();
 
